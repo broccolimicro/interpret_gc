@@ -10,20 +10,20 @@ const bool debug = false;
 
 parse_gc::rule export_rule(const gc::GuardedCommand &rule, const gc::GuardedCommands &rules) {
 	parse_gc::setup_expressions();
-	
+
 	parse_gc::rule result;
 	result.valid = true;
 	/*result.keep = rules.nets[net].keep;
 	result.weak = attr.weak;
 	result.force = attr.force;
 	result.pass = attr.pass;*/
-	if (not rule.assume.isValid()) {
+	if (not rule.assume.isUndef() and not rule.assume.isValid()) {
 		result.assume = arithmetic::export_expression<parse_gc::expression>(rule.assume, rules);
 	}
 	/*if (attr.delay_max != attributes().delay_max) {
 		result.after = attr.delay_max;
 	}*/
-	if (not rule.guard.isValid()) {
+	if (not rule.guard.isUndef() and not rule.guard.isValid()) {
 		result.implicant = arithmetic::export_expression<parse_gc::expression>(rule.guard, rules);
 	}
 	result.action = arithmetic::export_composition<parse_gc::simple_composition>(rule.action, rules);

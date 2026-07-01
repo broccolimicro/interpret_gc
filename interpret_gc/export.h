@@ -7,7 +7,7 @@
 
 namespace gc {
 
-parse_gc::rule export_rule(const gc::GuardedCommand &gc);
-parse_gc::rule_set export_rule_set(const gc::GuardedCommands &pr);
+parse_gc::rule export_rule(const gc::GuardedCommand &gc, const gc::GuardedCommands &rules);
+parse_gc::rule_set export_rule_set(const gc::GuardedCommands &rules);
 
 }
