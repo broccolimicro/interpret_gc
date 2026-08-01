@@ -49,6 +49,10 @@ struct CompositionImporter : parse_expression::Importer<arithmetic::Choice> {
 arithmetic::Action import_assignment(const assignment &syntax, ucs::Netlist nets, tokenizer *tokens, int region = 0, bool auto_define = false);
 arithmetic::Choice import_composition(const parse_expression::expression &syntax, ucs::Netlist nets, tokenizer *tokens, int region = 0, bool auto_define = false);
 
+}
+
+namespace gc {
+
 void import_rule(const parse_gc::rule &syntax, gc::GuardedCommands &rules, int default_id, tokenizer *tokens, bool auto_define);
 void import_rule_set(const parse_gc::rule_set &syntax, gc::GuardedCommands &rules, int default_id, tokenizer *tokens, bool auto_define);
 

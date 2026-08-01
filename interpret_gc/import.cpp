@@ -296,6 +296,9 @@ arithmetic::Choice import_composition(const parse_expression::expression &syntax
 	return CompositionImporter(nets, region, auto_define).import_expression(syntax, tokens);
 }
 
+}
+
+namespace gc {
 
 void import_rule(const parse_gc::rule &syntax, gc::GuardedCommands &rules, int default_id, tokenizer *tokens, bool auto_define) {
 	gc::GuardedCommand result;
